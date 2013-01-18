@@ -20,7 +20,9 @@ namespace CollectProcess
             try
             {
                
-                RegistryKey key2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\PerfCap\\PM");
+                RegistryKey key2 =
+	Registry.LocalMachine.OpenSubKey("SOFTWARE\\Sample\\CollectProcess");
+
                 datadir = (string)key2.GetValue("DataDirectory");
                 key2.Close();
             }
