@@ -20,15 +20,14 @@ namespace CollectProcess
             try
             {
                
-                RegistryKey key2 =
-	Registry.LocalMachine.OpenSubKey("SOFTWARE\\Sample\\CollectProcess");
-
+                RegistryKey key2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Doodle");
                 datadir = (string)key2.GetValue("DataDirectory");
                 key2.Close();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("registry exception " + ex.ToString());
+                datadir = "C:\\";
             }
             string filename = get_filename(datadir);
             writer = XmlWriter.Create(datadir + "\\" + filename);
